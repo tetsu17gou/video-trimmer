@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オンライン動画切り出しアプリ</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 2em auto; padding: 0 1em; }
+        input, button { font-size: 1em; padding: 0.5em; margin: 0.5em 0; }
+        #progress, #message { margin-top: 1em; }
+        #download-link { display: block; margin-top: 1em; font-size: 1.2em; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>オンライン動画切り出しアプリ</h1>
+    <p>動画ファイルを選択し、切り出したい範囲（開始時間と終了時間）を秒で指定してください。</p>
+
+    <p><strong>1. 動画ファイルを選択</strong></p>
+    <input type="file" id="uploader">
+
+    <p><strong>2. 切り出し範囲を指定 (秒)</strong></p>
+    <label>開始時間: <input type="number" id="start-time" value="0" min="0"></label>
+    <label>終了時間: <input type="number" id="end-time" value="10" min="0"></label>
+
+    <p><strong>3. 実行</strong></p>
+    <button id="trim-button">切り出し実行</button>
+
+    <div id="progress"></div>
+    <div id="message"></div>
+    <a id="download-link"></a>
+
+    <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
